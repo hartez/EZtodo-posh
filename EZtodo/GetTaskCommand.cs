@@ -25,9 +25,8 @@ namespace EZtodo
         // This method will be called for each input received from the pipeline to this cmdlet; if no input is received, this method is not called
         protected override void ProcessRecord()
         {
-            var list = new TaskList();
-            list.LoadTasks(SourcePath);
-
+            var list = new TaskList(SourcePath);
+            
             var filteredList = string.IsNullOrEmpty(SearchTerm)
                 ? list
                 : list.Search(SearchTerm);
@@ -42,6 +41,64 @@ namespace EZtodo
         protected override void EndProcessing()
         {
 
+        }
+    }
+
+    [Cmdlet(VerbsCommon.Get, "PriorityTask")]
+    [OutputType(typeof(NumberedTask))]
+    public class GetPriorityTaskCommand : PSCmdlet
+    {
+        [Parameter(Mandatory = true, Position = 0)]
+        public string SourcePath { get; set; }
+
+        [ValidateRange('A', 'Z')]   
+        [Parameter(Mandatory = false, Position = 1)]
+        public char? Priority { get; set; } = null;
+    
+        protected override void ProcessRecord()
+        {
+            var list = new TaskList(SourcePath);
+            
+            foreach (var numberedTask in list.GetPriority(Priority))
+            {
+                WriteObject(numberedTask);
+            }
+        }
+    }
+
+    [Cmdlet(VerbsCommon.Get, "Project")]
+    [OutputType(typeof(string))]
+    public class GetProject : PSCmdlet
+    {
+        [Parameter(Mandatory = true, Position = 0)]
+        public string SourcePath { get; set; }
+    
+        protected override void ProcessRecord()
+        {
+            var list = new TaskList(SourcePath);
+            
+            foreach (var project in list.GetProjects())
+            {
+                WriteObject(project);
+            }
+        }
+    }
+
+    [Cmdlet(VerbsCommon.Get, "Context")]
+    [OutputType(typeof(string))]
+    public class GetContext : PSCmdlet
+    {
+        [Parameter(Mandatory = true, Position = 0)]
+        public string SourcePath { get; set; }
+    
+        protected override void ProcessRecord()
+        {
+            var list = new TaskList(SourcePath);
+            
+            foreach (var context in list.GetContexts())
+            {
+                WriteObject(context);
+            }
         }
     }
 }

@@ -335,5 +335,17 @@ namespace EZtodo
         {
             return itemNumber <= Count;
         }
+
+        public IEnumerable<string> GetProjects()
+        {
+            return _tasks.SelectMany(numberedTask => numberedTask.Task.Projects, (task, project) => project)
+                .Distinct().OrderBy(project => project);
+        }
+
+        public IEnumerable<string> GetContexts()
+        {
+            return _tasks.SelectMany(numberedTask => numberedTask.Task.Contexts, (task, context) => context)
+                .Distinct().OrderBy(context => context);
+        }
     }
 }
