@@ -4,7 +4,7 @@ namespace EZtodo
 {
     [Cmdlet(VerbsCommon.Get, "Task")]
     [OutputType(typeof(NumberedTask))]
-    public class GetTaskCommand : PSCmdlet
+    public class GetTask : PSCmdlet
     {
         [Parameter(
             Mandatory = true,
@@ -99,6 +99,33 @@ namespace EZtodo
             {
                 WriteObject(context);
             }
+        }
+    }
+
+    [Cmdlet(VerbsCommon.Add, "Task")]
+    public class AddTask : PSCmdlet
+    {
+        [Parameter(Mandatory = true, Position = 0)]
+        public string SourcePath { get; set; }
+
+        [Parameter(Mandatory = true, Position = 1)]
+        public string Task { get; set; }
+
+        [Parameter()]
+        public SwitchParameter EnsureCreatedDate
+        {
+            get; set;
+        }
+    
+        protected override void ProcessRecord()
+        {
+            var list = new TaskList(SourcePath);
+            var newTask = list.Create(Task, EnsureCreatedDate);
+
+            list.Save(SourcePath);
+
+            WriteVerbose(newTask.Task.ToString());
+            WriteVerbose($"{newTask.Number} added.");
         }
     }
 }
