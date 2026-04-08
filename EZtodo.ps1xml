@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Configuration>
+	<ViewDefinitions>
+		<View>
+			<Name>NumberedTask-Custom</Name>
+			<ViewSelectedBy>
+				<TypeName>EZtodo.NumberedTask</TypeName>
+			</ViewSelectedBy>
+			<CustomControl>
+				<CustomEntries>
+					<CustomEntry>
+						<CustomItem>
+							<ExpressionBinding>
+								<ScriptBlock>
+									$raw = $_.ToString()
+									$w = $raw.Length;
+									$e = "";
+									if($w -gt ([console]::BufferWidth - 9)){$e = "..."; $w =
+									([console]::BufferWidth - 9);}
+									$raw.Substring(0, $w) + $e;
+								</ScriptBlock>
+							</ExpressionBinding>
+						</CustomItem>
+					</CustomEntry>
+				</CustomEntries>
+			</CustomControl>
+		</View>
+	</ViewDefinitions>
+</Configuration>
