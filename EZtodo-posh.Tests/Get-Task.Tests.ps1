@@ -91,4 +91,75 @@ Describe 'Add-Task' {
         $newTask.Task.Body | Should -Be "This is a new task"
         $newTask.Task.CreatedDate | Should -Not -BeNullOrEmpty
     }
+
+    It 'Will accept piped task strings' {
+
+        $newTasks = @('Task 1','Task 2','Task 3,', 'Task 4')
+
+        $newTasks | Add-Task ./local.txt
+
+        $tasks = Get-Task ./local.txt
+        $tasks.Count | Should -Be 12
+    }
+}
+
+Describe 'Remove-Task' {
+    BeforeAll {
+        Import-Module -Force ./EZtodo/bin/Debug/NET10.0/EZtodo.psd1
+    }
+
+    BeforeEach {
+        Copy-Item ./EZtodo-posh.Tests/todo_example.txt ./local.txt -Force
+    }
+
+    AfterEach {
+        Remove-Item ./local.txt -Force
+    }
+
+    It 'Removes a task from the list' {
+        Remove-Task ./local.txt 3 
+        $tasks = Get-Task ./local.txt
+        $tasks.Count | Should -Be 7
+        $tasks[2].Task.Body | Should -Be "Add cover sheets @Office +TPSReports"
+    }
+
+     It 'Leaves a blank line if PreserverLineNumbers is set' {
+        Remove-Task ./local.txt 1 -PreserveLineNumbers
+        Get-Content ./local.txt | Where-Object {$_.Length -eq 0} | Measure-Object | Select-Object -ExpandProperty Count | Should -Be 1
+    }
+}
+
+Describe 'Edit-Task' {
+    BeforeAll {
+        Import-Module -Force ./EZtodo/bin/Debug/NET10.0/EZtodo.psd1
+    }
+
+    BeforeEach {
+        Copy-Item ./EZtodo-posh.Tests/todo_example.txt ./local.txt -Force
+    }
+
+    AfterEach {
+        Remove-Item ./local.txt -Force
+    }
+
+    It 'Adds text to the end of a task' {
+        Edit-Task ./local.txt 6 -Append " (two gallons)" 
+
+        (Get-Content ./local.txt) | Write-Host
+
+        $tasks = Get-Task ./local.txt 
+        $tasks[5].Task.Body | Should -Be "Pick up milk @GroceryStore (two gallons)"
+    }
+
+    It 'Adds text to the beginning of a task' {
+        Edit-Task ./local.txt 2 -Prepend "Call to " 
+        $tasks = Get-Task ./local.txt 
+        $tasks[1].Task.Body | Should -Be "Call to Schedule annual checkup +Health"
+    }
+
+    It 'Replaces text in a task' {
+        Edit-Task ./local.txt 2 -Replace "annual" -ReplaceWith "biannual" 
+        $tasks = Get-Task ./local.txt 
+        $tasks[1].Task.Body | Should -Be "Schedule biannual checkup +Health"
+    }
 }

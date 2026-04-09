@@ -121,7 +121,7 @@ namespace EZtodo
             _tasks[index] = new NumberedTask(itemNumber, task.Completed ? task.WithPending() : task.WithCompleted(), Format);
         }
 
-        private bool ReplaceItemText(int itemNumber, string oldText, string newText)
+        public bool ReplaceInTask(int itemNumber, string oldText, string newText)
         {
             var task = GetTask(itemNumber);
 
@@ -158,11 +158,6 @@ namespace EZtodo
         public void ReplaceTask(int itemNumber, string newTask, bool ensureCreatedDate = false)
         {
             _tasks[itemNumber - 1] = Create(newTask, itemNumber, ensureCreatedDate); 
-        }
-
-        public bool RemoveFromTask(int item, string term)
-        {
-            return ReplaceItemText(item, term, string.Empty);
         }
 
         public IEnumerable<NumberedTask> RemoveCompletedTasks(bool preserveLineNumbers)
