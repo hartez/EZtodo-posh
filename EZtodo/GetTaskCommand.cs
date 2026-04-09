@@ -187,13 +187,6 @@ namespace EZtodo
         }
     }
 
-    public enum EditAction
-    {
-        Append,
-        Prepend,
-        Replace
-    }
-
     [Cmdlet(VerbsData.Edit, "Task")]
     public class EditTask : PSCmdlet
     {
@@ -242,6 +235,82 @@ namespace EZtodo
             
             var newTask = list.GetTask(Number);
             WriteVerbose($"{Number} {newTask}");
+        }
+    }
+
+    [Cmdlet(VerbsCommon.Set, "TaskComplete")]
+    public class SetTaskComplete : PSCmdlet
+    {
+        [Parameter(Mandatory = true, Position = 0)]
+        public string SourcePath { get; set; }
+
+        [Parameter(Mandatory = true, Position = 1, ValueFromPipeline = true)]
+        public int Number { get; set; }
+
+        private TaskList _list;
+
+        protected override void BeginProcessing()
+        {
+            _list = new TaskList(SourcePath);
+        }
+
+        protected override void ProcessRecord()
+        {
+            var task = _list.GetTask(Number);
+
+            if (!task.Completed)
+            {
+                _list.MarkCompleted(Number);    
+                WriteVerbose($"{task.Body}");
+                WriteVerbose($"{Number} marked as done.");
+            }
+            else
+            {
+                WriteVerbose($"{Number} is already marked as done.");
+            }
+        }
+
+        protected override void EndProcessing()
+        {
+            _list.Save(SourcePath);
+        }
+    }
+
+    [Cmdlet(VerbsCommon.Set, "TaskPending")]
+    public class SetTaskPending : PSCmdlet
+    {
+        [Parameter(Mandatory = true, Position = 0)]
+        public string SourcePath { get; set; }
+
+        [Parameter(Mandatory = true, Position = 1, ValueFromPipeline = true)]
+        public int Number { get; set; }
+
+        private TaskList _list;
+
+        protected override void BeginProcessing()
+        {
+            _list = new TaskList(SourcePath);
+        }
+
+        protected override void ProcessRecord()
+        {
+            var task = _list.GetTask(Number);
+
+            if (task.Completed)
+            {
+                _list.MarkPending(Number);    
+                WriteVerbose($"{task.Body}");
+                WriteVerbose($"{Number} mark as pending.");
+            }
+            else
+            {
+                WriteVerbose($"{Number} is already marked as pending.");
+            }
+        }
+
+        protected override void EndProcessing()
+        {
+            _list.Save(SourcePath);
         }
     }
 }
