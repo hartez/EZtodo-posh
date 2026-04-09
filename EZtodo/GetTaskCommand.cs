@@ -313,4 +313,59 @@ namespace EZtodo
             _list.Save(SourcePath);
         }
     }
+
+    [Cmdlet(VerbsCommon.Set, "TaskPriority")]
+    public class SetTaskPriority : PSCmdlet
+    {
+        [Parameter(Mandatory = true, Position = 0)]
+        public string SourcePath { get; set; }
+
+        [Parameter(Mandatory = true, Position = 1)]
+        public int Number { get; set; }
+
+        [ValidateRange('A', 'Z')]   
+        [Parameter(Mandatory = true, Position = 2)]
+        public char Priority { get; set; }
+
+        protected override void ProcessRecord()
+        {
+            var list = new TaskList(SourcePath);
+            list.SetItemPriority(Number, Priority);
+            list.Save(SourcePath);
+
+            WriteVerbose($"{Number} set to priority {Priority}");
+        }
+    }
+
+    [Cmdlet(VerbsCommon.Remove, "TaskPriority")]
+    public class RemoveTaskPriority : PSCmdlet
+    {
+        [Parameter(Mandatory = true, Position = 0)]
+        public string SourcePath { get; set; }
+
+        [Parameter(Mandatory = true, Position = 1, ValueFromPipeline = true)]
+        public int Number { get; set; }
+
+        private TaskList _list;
+
+        protected override void BeginProcessing()
+        {
+            _list = new TaskList(SourcePath);
+        }
+
+        protected override void ProcessRecord()
+        {
+            _list.ClearItemPriority(Number);
+
+            var task = _list.GetTask(Number);
+            WriteVerbose(task.Body);
+			WriteVerbose($"{Number} deprioritized.");
+        }
+
+        protected override void EndProcessing()
+        {
+            _list.Save(SourcePath);
+        }
+    }
+    
 }

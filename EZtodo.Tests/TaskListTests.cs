@@ -308,5 +308,19 @@ this is the second task
 
             Assert.Equal("this is task 2 in back", task.Body);
         }
+
+        [Fact]
+        public void ClearPriority()
+        {
+            var taskList = new TaskList()
+            {
+                "(A) this is task 1"
+            };
+
+            taskList.ClearItemPriority(1);
+            var task = taskList.GetTask(1);
+
+            Assert.Null(task.Priority);
+        }
     }
 }
