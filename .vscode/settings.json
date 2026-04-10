@@ -1,3 +1,4 @@
 {
-    "powershell.enableProfileLoading": false
+    "powershell.enableProfileLoading": false,
+    "editor.formatOnSave": true
 }
