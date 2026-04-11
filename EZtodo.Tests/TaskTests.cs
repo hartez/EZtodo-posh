@@ -223,7 +223,7 @@ public class TaskTests
     }
 
     [Fact]
-    public void MetaDataMustNotHaveWhitespaceAfterColon()
+    public void MetadataMustNotHaveWhitespaceAfterColon()
     {
         var task =
             Task.Parse(
@@ -231,5 +231,28 @@ public class TaskTests
 
         Assert.True(task.DueDate == "2014-07-02");
         Assert.False(task.Metadata.ContainsKey("cell"), "metadata cannot have whitespace");
+    }
+
+    [Fact]
+    public void UrlsAreNotMetadata()
+    {
+        var task = Task.Parse("this is a task http://example.com https://example.com");
+        Assert.Empty(task.Metadata);
+    }
+
+    [Fact]
+    public void UrlsCanBeMetadataValues()
+    {
+        var task = Task.Parse("this is a task url:http://example.com url2:https://example.com");
+        Assert.Equal(2, task.Metadata.Count);
+        Assert.Equal("http://example.com", task.Metadata["url"]);
+        Assert.Equal("https://example.com", task.Metadata["url2"]);
+    }
+
+    [Fact]
+    public void LastMetadataValueInWins()
+    {
+        var task = Task.Parse("this is a task key:value1 key:value2");
+        Assert.Equal("value2", task.Metadata["key"]);
     }
 }

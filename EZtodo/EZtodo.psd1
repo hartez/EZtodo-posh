@@ -8,74 +8,74 @@
 
 @{
 
-# Script module or binary module file associated with this manifest
-ModuleToProcess = 'EZtodo_posh.dll'
+    # Script module or binary module file associated with this manifest
+    ModuleToProcess       = 'EZtodo_posh.dll'
 
-# Version number of this module.
-ModuleVersion = '1.0'
+    # Version number of this module.
+    ModuleVersion         = '1.0'
 
-# ID used to uniquely identify this module
-GUID = 'a0432fa2-a117-44e3-9371-98641698a6c1'
+    # ID used to uniquely identify this module
+    GUID                  = 'a0432fa2-a117-44e3-9371-98641698a6c1'
 
-# Author of this module
-Author = 'E.Z. Hart'
+    # Author of this module
+    Author                = 'E.Z. Hart'
 
-# Company or vendor of this module
-CompanyName = 'CodeWise LLC'
+    # Company or vendor of this module
+    CompanyName           = 'CodeWise LLC'
 
-# Copyright statement for this module
-Copyright = '2026'
+    # Copyright statement for this module
+    Copyright             = '2026'
 
-# Description of the functionality provided by this module
-Description = 'todo.txt for PowerShell'
+    # Description of the functionality provided by this module
+    Description           = 'todo.txt for PowerShell'
 
-# Minimum version of the Windows PowerShell engine required by this module
-PowerShellVersion = '7.0'
+    # Minimum version of the Windows PowerShell engine required by this module
+    PowerShellVersion     = '7.0'
 
-# Name of the Windows PowerShell host required by this module
-PowerShellHostName = ''
+    # Name of the Windows PowerShell host required by this module
+    PowerShellHostName    = ''
 
-# Processor architecture (None, X86, Amd64, IA64) required by this module
-ProcessorArchitecture = ''
+    # Processor architecture (None, X86, Amd64, IA64) required by this module
+    ProcessorArchitecture = ''
 
-# Modules that must be imported into the global environment prior to importing this module
-RequiredModules = @()
+    # Modules that must be imported into the global environment prior to importing this module
+    RequiredModules       = @()
 
-# Assemblies that must be loaded prior to importing this module
-RequiredAssemblies = @()
+    # Assemblies that must be loaded prior to importing this module
+    RequiredAssemblies    = @()
 
-# Script files (.ps1) that are run in the caller's environment prior to importing this module
-ScriptsToProcess = @()
+    # Script files (.ps1) that are run in the caller's environment prior to importing this module
+    ScriptsToProcess      = @('EZtodo.ps1')
 
-# Type files (.ps1xml) to be loaded when importing this module
-TypesToProcess = @()
+    # Type files (.ps1xml) to be loaded when importing this module
+    TypesToProcess        = @()
 
-# Format files (.ps1xml) to be loaded when importing this module
-FormatsToProcess = @('EZtodo.ps1xml')
+    # Format files (.ps1xml) to be loaded when importing this module
+    FormatsToProcess      = @('EZtodo.ps1xml')
 
-# Modules to import as nested modules of the module specified in ModuleToProcess
-NestedModules = @()
+    # Modules to import as nested modules of the module specified in ModuleToProcess
+    NestedModules         = @()
 
-# Functions to export from this module
-FunctionsToExport = '*'
+    # Functions to export from this module
+    FunctionsToExport     = @("todo")
 
-# Cmdlets to export from this module
-CmdletsToExport = '*'
+    # Cmdlets to export from this module
+    CmdletsToExport       = '*'
 
-# Variables to export from this module
-VariablesToExport = '*'
+    # Variables to export from this module
+    VariablesToExport     = '*'
 
-# Aliases to export from this module
-AliasesToExport = '*'
+    # Aliases to export from this module
+    AliasesToExport       = '*'
 
-# List of all modules packaged with this module
-ModuleList = @()
+    # List of all modules packaged with this module
+    ModuleList            = @()
 
-# List of all files packaged with this module
-FileList = @('EZtodo.psd1', 'EZtodo_posh.dll')
+    # List of all files packaged with this module
+    FileList              = @('EZtodo.psd1', 'EZtodo_posh.dll', 'EZtodo.ps1', 'EZtodo.ps1xml')
 
-# Private data to pass to the module specified in ModuleToProcess
-PrivateData = ''
+    # Private data to pass to the module specified in ModuleToProcess
+    PrivateData           = ''
 
 }
 

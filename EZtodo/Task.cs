@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -22,15 +23,15 @@ namespace EZtodo
         public static Task Empty { get; } = new Task();
 
         private Task(string body, char? priority = null, DateTime? createdDate = null,
-            List<string> projects = null, List<string> contexts = null, Dictionary<string, string> metadata = null) 
+            List<string> projects = null, List<string> contexts = null, Dictionary<string, string> metadata = null)
             : this(body, createdDate, projects, contexts, metadata)
         {
             Priority = priority;
         }
 
         private Task(string body, DateTime? completedDate, DateTime? createdDate = null,
-            List<string> projects = null, List<string> contexts = null, Dictionary<string, string> metadata = null) 
-            : this(body, createdDate, projects, contexts, metadata) 
+            List<string> projects = null, List<string> contexts = null, Dictionary<string, string> metadata = null)
+            : this(body, createdDate, projects, contexts, metadata)
         {
             Completed = true;
             CompletedDate = completedDate;
@@ -90,7 +91,7 @@ namespace EZtodo
 
             if (Completed)
             {
-                return new Task(body, completedDate: CompletedDate, createdDate: CreatedDate, 
+                return new Task(body, completedDate: CompletedDate, createdDate: CreatedDate,
                     projects: FindProjects(body), contexts: FindContexts(body), metadata: FindMetadata(body));
             }
 
@@ -156,7 +157,7 @@ namespace EZtodo
         [GeneratedRegex(@"(?:(?<done>[x] (?:(?<completeddate>[0-9]{4}-[0-9]{2}-[0-9]{2}) )))?(?:\((?<priority>[A-Z])\) )?(?:(?<createddate>[0-9]{4}-[0-9]{2}-[0-9]{2}) )?(?<todo>.+)$")]
         private static partial Regex EverythingElseRegex();
 
-        [GeneratedRegex(@"(?:^|\s)(?<meta>\w+:[^\s]+\S*)")]
+        [GeneratedRegex(@"(?<meta>\w+:[^\s/]+\S*)")]
         private static partial Regex MetaDataRegex();
 
         public static List<string> FindProjects(string body)
@@ -178,9 +179,10 @@ namespace EZtodo
             foreach (Match match in metadata)
             {
                 string data = match.Groups[1].Captures[0].Value;
-                string[] kvp = data.Split(':');
-
-                result.Add(kvp[0], kvp[1]);
+                var firstColonIndex = data.IndexOf(':');
+                var key = data[..firstColonIndex];
+                var value = data[(firstColonIndex + 1)..];
+                result[key] = value;
             }
 
             return result;
@@ -211,7 +213,7 @@ namespace EZtodo
             {
                 return group.Value.First();
             }
- 
+
             return null;
         }
 
@@ -232,7 +234,7 @@ namespace EZtodo
                 return new Task(body: body, completedDate: completedDate, createdDate: createdDate,
                     projects: FindProjects(body), contexts: FindContexts(body), metadata: FindMetadata(body));
             }
- 
+
             return new Task(body: body, priority: priority, createdDate: createdDate,
                     projects: FindProjects(body), contexts: FindContexts(body), metadata: FindMetadata(body));
         }

@@ -4,8 +4,8 @@ using System.Management.Automation;
 
 namespace EZtodo
 {
-    [Cmdlet(VerbsCommon.Move, "CompleteTask")]
-    public class MoveCompleteTask : EditTaskListCmdLet
+    [Cmdlet(VerbsCommon.Move, "CompletedTask")]
+    public class MoveCompletedTask : EditTaskListCmdLet
     {
         [Parameter(Mandatory = true, Position = 2)]
         public string ArchivePath { get; set; }
