@@ -5,4 +5,4 @@
 Plan backyard herb garden @Home
 Pick up milk @GroceryStore
 Research self-publishing services +Novel @Computer
-x Download Todo.txt mobile app @Phone
+x 2011-03-02 Download Todo.txt mobile app @Phone

@@ -59,8 +59,6 @@ public class TaskTests
         Assert.Null(task.Priority);
     }
 
-
-
     [Fact]
     public void Completed_Task()
     {

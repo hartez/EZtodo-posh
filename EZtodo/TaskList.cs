@@ -157,7 +157,7 @@ namespace EZtodo
 
         public void ReplaceTask(int itemNumber, string newTask, bool ensureCreatedDate = false)
         {
-            _tasks[itemNumber - 1] = Create(newTask, itemNumber, ensureCreatedDate); 
+            _tasks[itemNumber - 1] = Create(newTask, itemNumber, ensureCreatedDate);
         }
 
         public IEnumerable<NumberedTask> RemoveCompletedTasks(bool preserveLineNumbers)
@@ -295,7 +295,7 @@ namespace EZtodo
         }
 
         private NumberedTask Create(string task, int number, bool ensureCreatedDate = false)
-        { 
+        {
             var toAdd = Task.Parse(task);
 
             if (ensureCreatedDate && toAdd.CreatedDate is null)
@@ -309,6 +309,11 @@ namespace EZtodo
         public void Add(string task)
         {
             _tasks.Add(new NumberedTask(Count + 1, Task.Parse(task), Format));
+        }
+
+        public void Add(Task task)
+        {
+            _tasks.Add(new NumberedTask(Count + 1, task, Format));
         }
 
         public IEnumerator<NumberedTask> GetEnumerator()
