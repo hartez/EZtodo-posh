@@ -3,19 +3,18 @@
 	TODO.TXT Command Line Interface 2.0 for PowerShell
 
 .Description
-	The Invoke-TaskCommand function is an entry point for running functions to manipulate a todo.txt file 
-	using the same command syntax as todo.sh. This module exports an alias of 'todo' for Invoke-TaskCommand
-	to retain the same command structure as todo.sh. 
+	The todo function is an entry point for running functions to manipulate a todo.txt file 
+	using the same command syntax as todo.sh.  
 
 .Example
 	todo list 
 	
-	List all of the todo items in your todo file. 
+	List all of the tasks in your todo file. 
 
 .Example
 	todo listall 
 	
-	List all of the items in the todo and done files.
+	List all of the items in the todo.txt and done.txt files.
 
 .Example
 	todo add "THING I NEED TO DO +project @context"
@@ -154,30 +153,40 @@ function todo {
     }
     
     if ($cmd -eq "do") {
-        Set-TaskComplete $args[1..$args.Length]
+        $args[1..$args.Length] | Set-TaskComplete $TODO_FILE
+        return
     }
-    elseif ($cmd -eq "markpending") {
-        Set-TaskPending $args[1..$args.Length]
+    
+    if ($cmd -eq "markpending") {
+        $args[1..$args.Length] | Set-TaskPending $TODO_FILE
+        return
     }
-    elseif ($cmd -eq "archive") {
-        Sync-TaskArchive
+    
+    if ($cmd -eq "archive") {
+        $todoArgs = @{SourcePath = $TODO_FILE; ArchivePath = $DONE_FILE; PreserveLineNumbers = $TODOTXT_PRESERVE_LINE_NUMBERS }
+        Move-CompletedTask @todoArgs
+        return
     }
-    elseif ($cmd -eq "pri" -or $cmd -eq "p") {
-        Set-TaskPriority $args[1] $args[2]
+    
+    if ($cmd -eq "pri" -or $cmd -eq "p") {
+        $todoArgs = @{SourcePath = $TODO_FILE; Number = $args[1]; Priority = $args[2] }
+        Set-TaskPriority @todoArgs
+        return
     }
-    elseif ($cmd -eq "depri" -or $cmd -eq "dp") {
-        Remove-TaskPriority $args[1..$args.Length]
+
+    if ($cmd -eq "depri" -or $cmd -eq "dp") {
+        $args[1..$args.Length] | Remove-TaskPriority $TODO_FILE
+        return
     }
-    elseif ($cmd -eq "move" -or $cmd -eq "mv") {
-        if ($args[3]) {
-            Move-Task $args[1] $args[2] $args[3]
-        }
-        else {
-            Move-Task $args[1] $args[2] 
-        }
+
+    if ($cmd -eq "move" -or $cmd -eq "mv") {
+        $todoArgs = @{SourcePath = $TODO_FILE; Number = $args[1]; DestinationPath = $args[2]; PreserveLineNumbers = $TODOTXT_PRESERVE_LINE_NUMBERS }
+        Move-Task @todoArgs
+        return
     }
-    elseif ($cmd -eq "help") {
-        Get-Help Todo
+    
+    if ($cmd -eq "help") {
+        Get-Help todo
     }
 }
 
