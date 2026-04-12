@@ -130,15 +130,30 @@ function todo {
     }	
     
     if ($cmd -eq "replace") {
-        Set-Task $args[1] ([String]::Join(" ", $args[2..$args.Length]))
+        $todoArgs = @{SourcePath = $TODO_FILE; Number = $args[1]; Task = JoinArgs $args[2..$args.Length]; EnsureCreatedDate = $TODOTXT_DATE_ON_ADD }
+        Set-Task @todoArgs
+        return
     }
-    elseif ($cmd -eq "prepend" -or $cmd -eq "prep") {
-        Edit-Task $args[1] $false ([String]::Join(" ", $args[2..$args.Length]))
+    
+    if ($cmd -eq "prepend" -or $cmd -eq "prep") {
+        $todoArgs = @{SourcePath = $TODO_FILE; Number = $args[1]; Prepend = JoinArgs $args[2..$args.Length]; }
+        Edit-Task @todoArgs
+        return
     }
-    elseif ($cmd -eq "append" -or $cmd -eq "app") {
-        Edit-Task $args[1] $true ([String]::Join(" ", $args[2..$args.Length]))
+    
+    if ($cmd -eq "append" -or $cmd -eq "app") {
+        $todoArgs = @{SourcePath = $TODO_FILE; Number = $args[1]; Append = JoinArgs $args[2..$args.Length]; }
+        Edit-Task @todoArgs
+        return
     }
-    elseif ($cmd -eq "do") {
+
+    if ($cmd -eq "sub" -or $cmd -eq "substitute") {
+        $todoArgs = @{SourcePath = $TODO_FILE; Number = $args[1]; Replace = $args[2]; ReplaceWith = $args[3] }
+        Edit-Task @todoArgs
+        return
+    }
+    
+    if ($cmd -eq "do") {
         Set-TaskComplete $args[1..$args.Length]
     }
     elseif ($cmd -eq "markpending") {
