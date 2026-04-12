@@ -205,11 +205,6 @@ function LoadConfiguration() {
     $script:TODOTXT_PRESERVE_LINE_NUMBERS = $FALSE
     $script:TODOTXT_DATE_ON_ADD = $TRUE
 	
-    $script:PRI_A = 'Yellow'
-    $script:PRI_B = 'Green'
-    $script:PRI_C = 'Cyan'
-    $script:PRI_X = 'White'
-	
     ## Override the defaults with the configuration file
     if (Test-Path $path) {
         .$path			
