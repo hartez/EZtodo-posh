@@ -52,8 +52,8 @@
 function todo {
     param()
 	
-    if (!$configLocation) {
-        $configLocation = ($PSScriptRoot + '\todo_cfg.ps1')
+    if (-not $configLocation) {
+        $configLocation = ($PSScriptRoot + '\EZtodo_cfg.ps1')
     }
 	
     LoadConfiguration $configLocation

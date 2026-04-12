@@ -13,11 +13,41 @@
 							<ExpressionBinding>
 								<ScriptBlock>
 									$raw = $_.ToString()
+
+									$priColor = ""
+									$resetColor = ""
+
+									# Using ANSI color codes escape sequences to set the console colors for priority items
+									
+									if($_.IsPriority) {
+										$pri = $_.Priority
+
+										if ($pri -eq "A") {
+											# Light Yellow
+											$priColor = "`e[93m"
+										}
+										elseif ($pri -eq "B") {
+											# Light Green
+											$priColor = "`e[92m"
+										}
+										elseif ($pri -eq "C") {
+											# Light Cyan
+											$priColor = "`e[96m"
+										}
+										elseif ($pri -match "[D-Z]") {
+											# White
+											$priColor = "`e[97m"
+										}
+
+										# Console Default
+										$resetColor = "`e[39m"
+									}
+
 									$w = $raw.Length;
 									$e = "";
-									if($w -gt ([console]::BufferWidth - 9)){$e = "..."; $w =
-									([console]::BufferWidth - 9);}
-									$raw.Substring(0, $w) + $e;
+									if($w -gt ([console]::BufferWidth - 7)){$e = "…"; $w =
+									([console]::BufferWidth - 7);}
+									$priColor + $raw.Substring(0, $w) + $e + $resetColor
 								</ScriptBlock>
 							</ExpressionBinding>
 						</CustomItem>
