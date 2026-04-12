@@ -66,45 +66,70 @@ function todo {
     $cmd = $args[0]
 
     if (!$cmd -or $cmd -eq "list" -or $cmd -eq "ls") {
-        $todoArgs = @{SourcePath = $TODO_FILE; SearchTerm = JoinArgs($args[1..$args.Length]) }
+        $todoArgs = @{SourcePath = $TODO_FILE; SearchTerm = JoinArgs $args[1..$args.Length] }
         Get-Task @todoArgs
         return
     }
 
     if ($cmd -eq "listall" -or $cmd -eq "lsa") {
-        $todoArgs = @{SourcePath = $TODO_FILE; SearchTerm = JoinArgs($args[1..$args.Length]) }
-        $doneArgs = @{SourcePath = $DONE_FILE; SearchTerm = JoinArgs($args[1..$args.Length]) }
+        $todoArgs = @{SourcePath = $TODO_FILE; SearchTerm = JoinArgs $args[1..$args.Length] }
+        $doneArgs = @{SourcePath = $DONE_FILE; SearchTerm = JoinArgs $args[1..$args.Length] }
         Get-Task @todoArgs
         Get-Task @doneArgs
         return
     }
 
     if ($cmd -eq "listfile" -or $cmd -eq "lf") {
-        $todoArgs = @{path = $args[1]; search = $args[2..$args.Length] }
+        $todoArgs = @{SourcePath = $args[1]; SearchTerm = JoinArgs $args[2..$args.Length] }
         Get-Task @todoArgs
+        return
     }
-    elseif ($cmd -eq "add" -or $cmd -eq "a") {
-        Add-Task $args[1..$args.Length]
+
+    if ($cmd -eq "add" -or $cmd -eq "a") {
+        $task = JoinArgs $args[1..$args.Length]
+        $todoArgs = @{SourcePath = $TODO_FILE; Task = $task; EnsureCreatedDate = $TODOTXT_DATE_ON_ADD }
+        Add-Task @todoArgs
+        return
     }
-    elseif ($cmd -eq "addm") {
+
+    if ($cmd -eq "addm") {
+        $todoArgs = @{SourcePath = $TODO_FILE; EnsureCreatedDate = $TODOTXT_DATE_ON_ADD }
         $split = $args[$args.Length - 1].Split([environment]::newline, [StringSplitOptions]'RemoveEmptyEntries')
-        ($split) | ForEach-Object {
-            Add-Task $_
+        $split | Add-Task @todoArgs 
+        return
+    }
+    
+    if ($cmd -eq "rm" -or $cmd -eq "del") {
+        $todoArgs = @{SourcePath = $TODO_FILE; Confirm = -not $TODOTXT_FORCE; Number = $args[1] }
+        Remove-Task @todoArgs
+        return
+    }
+    
+    if ($cmd -eq "listproj" -or $cmd -eq "lsprj" ) {
+        Get-Project $TODO_FILE
+        return
+    }
+    
+    if ($cmd -eq "listcon" -or $cmd -eq "lsc" ) {
+        Get-Context $TODO_FILE
+        return
+    }
+    
+    if ($cmd -eq "listpri" -or $cmd -eq "lsp") {
+
+        if ($args.Length -gt 1) {
+            $todoArgs = @{SourcePath = $TODO_FILE; Priority = JoinArgs $args[1..$args.Length] }
+            Get-PriorityTask @todoArgs
         }
-    }
-    elseif ($cmd -eq "rm" -or $cmd -eq "del") {
-        Remove-Task $args[1] $args[2]
-    }
-    elseif ($cmd -eq "listproj" -or $cmd -eq "lsprj" ) {
-        Get-Project
-    }
-    elseif ($cmd -eq "listcon" -or $cmd -eq "lsc" ) {
-        Get-Contexts
-    }
-    elseif ($cmd -eq "listpri" -or $cmd -eq "lsp") {
-        Format-Priority((Get-Priority $args[1]))
+        else {
+            # No priority to search for, just list them all
+            Get-PriorityTask $TODO_FILE
+        }
+        
+        return
     }	
-    elseif ($cmd -eq "replace") {
+    
+    if ($cmd -eq "replace") {
         Set-Task $args[1] ([String]::Join(" ", $args[2..$args.Length]))
     }
     elseif ($cmd -eq "prepend" -or $cmd -eq "prep") {
@@ -142,7 +167,8 @@ function todo {
 }
 
 function JoinArgs([object[]] $arguments) {
-    $arguments[0..$args.Length] | Join-String -Separator ' ' 
+    $result = $arguments[0..$arguments.Length] | Join-String -Separator ' ' 
+    $result
 }
 
 function LoadConfiguration() {
