@@ -1,3 +1,4 @@
+using System.IO;
 using System.Management.Automation;
 
 namespace EZtodo
@@ -11,7 +12,13 @@ namespace EZtodo
 
         protected override void BeginProcessing()
         {
-            TaskList = new TaskList(SourcePath);
+            var path = Path.IsPathRooted(SourcePath)
+                ? SourcePath
+                : Path.Combine(SessionState.Path.CurrentFileSystemLocation.Path, SourcePath);
+
+            WriteVerbose(path);
+
+            TaskList = new TaskList(path);
         }
     }
 }
