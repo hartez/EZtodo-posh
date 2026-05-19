@@ -40,7 +40,7 @@ Describe 'Move-CompletedTask' {
         Set-TaskComplete ./local.txt 3
         Set-TaskComplete ./local.txt 6
 
-        Move-CompleteTask ./local.txt ./archivefile.txt 
+        Move-CompletedTask ./local.txt ./archivefile.txt 
         $tasks = Get-Task ./local.txt
         $tasks.Count | Should -Be 5
 
