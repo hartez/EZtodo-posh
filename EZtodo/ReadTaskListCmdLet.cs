@@ -16,8 +16,6 @@ namespace EZtodo
                 ? SourcePath
                 : Path.Combine(SessionState.Path.CurrentFileSystemLocation.Path, SourcePath);
 
-            WriteVerbose(path);
-
             TaskList = new TaskList(path);
         }
     }
