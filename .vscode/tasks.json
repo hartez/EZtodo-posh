@@ -9,7 +9,39 @@
 				"isDefault": true
 			},
 			"problemMatcher": [],
-			"label": "dotnet: build"
+			"label": "dotnet: build",
+			"dependsOn": [
+				"updateHelp"
+			]
+		},
+		{
+			"label": "updateHelp",
+			"detail": "Compiles the help markdown files in docs to maml for distribution",
+			"type": "shell",
+			"command": "${workspaceFolder}/EZtodo/scripts/compilehelp.ps1",
+			"presentation": {
+				"echo": true,
+				"reveal": "always",
+				"focus": false,
+				"panel": "shared",
+				"showReuseMessage": true,
+				"clear": false
+			},
+			"problemMatcher": [
+				{
+					// Unique id to help VS code clear warnings from the Problems window when you re-run the task
+					"owner": "updateHelp",
+					"pattern": {
+						// This regex needs to be adjusted to how your custom tool outputs errors and warnings to the console output
+						"regexp": "(Warning|Error)\\s(.*)\\s(-?\\d+)\\s(.*)",
+						// The numbers below are 1-based indexes of the regex groups
+						"severity": 1,
+						"file": 2,
+						"line": 3,
+						"message": 4
+					}
+				}
+			]
 		}
 	]
 }
