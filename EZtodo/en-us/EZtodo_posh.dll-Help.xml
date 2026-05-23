@@ -32,7 +32,7 @@
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
           <maml:name>Task</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Task Description }}</maml:para>
+            <maml:para>The task string to add.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -56,7 +56,7 @@
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
         <maml:name>Task</maml:name>
         <maml:description>
-          <maml:para>{{ Fill Task Description }}</maml:para>
+          <maml:para>The task string to add.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
@@ -67,30 +67,21 @@
           <dev:name>System.String</dev:name>
         </dev:type>
         <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
+          <maml:para>A string representing a todo.txt task.</maml:para>
         </maml:description>
       </command:inputType>
     </command:inputTypes>
-    <command:returnValues>
-      <command:returnValue>
-        <dev:type>
-          <dev:name>System.Object</dev:name>
-        </dev:type>
-        <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
-        </maml:description>
-      </command:returnValue>
-    </command:returnValues>
+    <command:returnValues />
     <maml:alertSet>
       <maml:alert>
-        <maml:para>{{ Fill in the Notes }}</maml:para>
+        <maml:para />
       </maml:alert>
     </maml:alertSet>
     <command:examples>
       <command:example>
         <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para>Add-Task .\todo.txt "Bring in the garbage cans"</maml:para>
         </maml:introduction>
         <dev:code />
         <dev:remarks />
@@ -101,19 +92,24 @@
         <maml:linkText>Online Version</maml:linkText>
         <command:uri />
       </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Task format rules</maml:linkText>
+        <command:uri>https://github.com/todotxt/todo.txt#todotxt-format-rules</command:uri>
+      </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
       <command:name>Edit-Task</command:name>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Modifies the body text of a task.</maml:para>
       </maml:description>
       <command:verb>Edit</command:verb>
       <command:noun>Task</command:noun>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Modifies the body text of a task by appending, prepending, or replacing text. If replace is specified, all instances of the search text are replaced.</maml:para>
+      <maml:para>Only the body text of the task is modified; this command does not affect priorties, created dates, or completed dates. This command does not affect task completion.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -121,14 +117,14 @@
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
           <maml:name>Append</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Append Description }}</maml:para>
+            <maml:para>Appends the specified text to the end of the task.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
           <maml:name>Number</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Number Description }}</maml:para>
+            <maml:para>The line number of the task to modify.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
         </command:parameter>
@@ -145,14 +141,14 @@
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
           <maml:name>Number</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Number Description }}</maml:para>
+            <maml:para>The line number of the task to modify.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
           <maml:name>Prepend</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Prepend Description }}</maml:para>
+            <maml:para>Prepends the specified text to the beginning of the task.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -169,21 +165,21 @@
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
           <maml:name>Number</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Number Description }}</maml:para>
+            <maml:para>The line number of the task to modify.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
           <maml:name>Replace</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Replace Description }}</maml:para>
+            <maml:para>The text in the task to replace.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="3" aliases="none">
           <maml:name>ReplaceWith</maml:name>
           <maml:description>
-            <maml:para>{{ Fill ReplaceWith Description }}</maml:para>
+            <maml:para>The replacement text.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -200,35 +196,35 @@
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
         <maml:name>Append</maml:name>
         <maml:description>
-          <maml:para>{{ Fill Append Description }}</maml:para>
+          <maml:para>Appends the specified text to the end of the task.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
         <maml:name>Number</maml:name>
         <maml:description>
-          <maml:para>{{ Fill Number Description }}</maml:para>
+          <maml:para>The line number of the task to modify.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
         <maml:name>Prepend</maml:name>
         <maml:description>
-          <maml:para>{{ Fill Prepend Description }}</maml:para>
+          <maml:para>Prepends the specified text to the beginning of the task.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
         <maml:name>Replace</maml:name>
         <maml:description>
-          <maml:para>{{ Fill Replace Description }}</maml:para>
+          <maml:para>The text in the task to replace.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="3" aliases="none">
         <maml:name>ReplaceWith</maml:name>
         <maml:description>
-          <maml:para>{{ Fill ReplaceWith Description }}</maml:para>
+          <maml:para>The replacement text.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
@@ -241,26 +237,39 @@
       </command:parameter>
     </command:parameters>
     <command:inputTypes />
-    <command:returnValues>
-      <command:returnValue>
-        <dev:type>
-          <dev:name>System.Object</dev:name>
-        </dev:type>
-        <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
-        </maml:description>
-      </command:returnValue>
-    </command:returnValues>
+    <command:returnValues />
     <maml:alertSet>
       <maml:alert>
-        <maml:para>{{ Fill in the Notes }}</maml:para>
+        <maml:para />
       </maml:alert>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- Example 1 ---------</maml:title>
+        <maml:title>--------- Example 1 - Append text to a task ---------</maml:title>
         <maml:introduction>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para>```powershell
+Edit-Task ./todo.txt 6 -Append " (two gallons)"
+```</maml:para>
+        </maml:introduction>
+        <dev:code />
+        <dev:remarks />
+      </command:example>
+      <command:example>
+        <maml:title>--------- Example 2 - Add text to the beginning of a task ---------</maml:title>
+        <maml:introduction>
+          <maml:para>```powershell
+Edit-Task ./todo.txt 2 -Prepend "Call to "
+```</maml:para>
+        </maml:introduction>
+        <dev:code />
+        <dev:remarks />
+      </command:example>
+      <command:example>
+        <maml:title>--------- Example 3 - Replace text in a task ---------</maml:title>
+        <maml:introduction>
+          <maml:para>```powershell
+Edit-Task ./todo.txt 2 -Replace "annual" -ReplaceWith "biannual"
+```</maml:para>
         </maml:introduction>
         <dev:code />
         <dev:remarks />
@@ -277,13 +286,13 @@
     <command:details>
       <command:name>Get-Context</command:name>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>List all of the contexts in the task file.</maml:para>
       </maml:description>
       <command:verb>Get</command:verb>
       <command:noun>Context</command:noun>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Lists all the contexts in all of the tasks in the task file. The list is ordered alphabetically, and all contexts are prefixed with "@".</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -291,7 +300,7 @@
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
           <maml:name>SourcePath</maml:name>
           <maml:description>
-            <maml:para>{{ Fill SourcePath Description }}</maml:para>
+            <maml:para>The source task list.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -301,7 +310,7 @@
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
         <maml:name>SourcePath</maml:name>
         <maml:description>
-          <maml:para>{{ Fill SourcePath Description }}</maml:para>
+          <maml:para>The source task list.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
@@ -313,20 +322,22 @@
           <dev:name>System.String</dev:name>
         </dev:type>
         <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
+          <maml:para>A string representing a context.</maml:para>
         </maml:description>
       </command:returnValue>
     </command:returnValues>
     <maml:alertSet>
       <maml:alert>
-        <maml:para>{{ Fill in the Notes }}</maml:para>
+        <maml:para />
       </maml:alert>
     </maml:alertSet>
     <command:examples>
       <command:example>
         <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para>```powershell
+Get-Context ./todo.txt
+```</maml:para>
         </maml:introduction>
         <dev:code />
         <dev:remarks />
@@ -343,13 +354,13 @@
     <command:details>
       <command:name>Get-PriorityTask</command:name>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Lists all priority tasks in a task file.</maml:para>
       </maml:description>
       <command:verb>Get</command:verb>
       <command:noun>PriorityTask</command:noun>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Lists all tasks in a task file which have a priority set. If a priority value is specified, lists only tasks which match that priority. If no value is specified, lists all prioritized tasks in order of priority.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -357,14 +368,14 @@
         <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
           <maml:name>Priority</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Priority Description }}</maml:para>
+            <maml:para>If set, the resulting list will only contain tasks matching this priority. Acceptable values are `A-Z`.</maml:para>
           </maml:description>
           <command:parameterValue required="false" variableLength="true">System.Nullable`1[System.Char]</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
           <maml:name>SourcePath</maml:name>
           <maml:description>
-            <maml:para>{{ Fill SourcePath Description }}</maml:para>
+            <maml:para>The source task list.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -374,14 +385,14 @@
       <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
         <maml:name>Priority</maml:name>
         <maml:description>
-          <maml:para>{{ Fill Priority Description }}</maml:para>
+          <maml:para>If set, the resulting list will only contain tasks matching this priority. Acceptable values are `A-Z`.</maml:para>
         </maml:description>
         <command:parameterValue required="false" variableLength="true">System.Nullable`1[System.Char]</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
         <maml:name>SourcePath</maml:name>
         <maml:description>
-          <maml:para>{{ Fill SourcePath Description }}</maml:para>
+          <maml:para>The source task list.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
@@ -393,20 +404,32 @@
           <dev:name>EZtodo.NumberedTask</dev:name>
         </dev:type>
         <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
+          <maml:para>An object containing a task and its line number in the source task file.</maml:para>
         </maml:description>
       </command:returnValue>
     </command:returnValues>
     <maml:alertSet>
       <maml:alert>
-        <maml:para>{{ Fill in the Notes }}</maml:para>
+        <maml:para />
       </maml:alert>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- Example 1 ---------</maml:title>
+        <maml:title>--------- Example 1 - List all prioritized tasks ---------</maml:title>
         <maml:introduction>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para>```powershell
+Get-PriorityTask ./todo.txt
+```</maml:para>
+        </maml:introduction>
+        <dev:code />
+        <dev:remarks />
+      </command:example>
+      <command:example>
+        <maml:title>--------- Example 2 - List all tasks with priority 'B' ---------</maml:title>
+        <maml:introduction>
+          <maml:para>```powershell
+Get-PriorityTask ./todo.txt B
+```</maml:para>
         </maml:introduction>
         <dev:code />
         <dev:remarks />
@@ -423,13 +446,13 @@
     <command:details>
       <command:name>Get-Project</command:name>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>List all of the projects in the task file.</maml:para>
       </maml:description>
       <command:verb>Get</command:verb>
       <command:noun>Project</command:noun>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Lists all the projects in all of the tasks in the task file. The list is ordered alphabetically, and all projects are prefixed with "+".</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -437,7 +460,7 @@
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
           <maml:name>SourcePath</maml:name>
           <maml:description>
-            <maml:para>{{ Fill SourcePath Description }}</maml:para>
+            <maml:para>The source task list.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -447,7 +470,7 @@
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
         <maml:name>SourcePath</maml:name>
         <maml:description>
-          <maml:para>{{ Fill SourcePath Description }}</maml:para>
+          <maml:para>The source task list.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
@@ -459,20 +482,22 @@
           <dev:name>System.String</dev:name>
         </dev:type>
         <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
+          <maml:para>A string representing a project.</maml:para>
         </maml:description>
       </command:returnValue>
     </command:returnValues>
     <maml:alertSet>
       <maml:alert>
-        <maml:para>{{ Fill in the Notes }}</maml:para>
+        <maml:para />
       </maml:alert>
     </maml:alertSet>
     <command:examples>
       <command:example>
         <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para>```powershell
+Get-Project ./todo.txt
+```</maml:para>
         </maml:introduction>
         <dev:code />
         <dev:remarks />
@@ -489,13 +514,13 @@
     <command:details>
       <command:name>Get-Task</command:name>
       <maml:description>
-        <maml:para>Gets the tasks from the specified task list file, filtered by the specified search term.</maml:para>
+        <maml:para>Gets the tasks from the specified task file.</maml:para>
       </maml:description>
       <command:verb>Get</command:verb>
       <command:noun>Task</command:noun>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Gets the tasks from the specified task file. Tasks can be filtered by a search term.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -545,33 +570,35 @@
     </command:returnValues>
     <maml:alertSet>
       <maml:alert>
-        <maml:para>{{ Fill in the Notes }}</maml:para>
+        <maml:para />
       </maml:alert>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- Example 1 ---------</maml:title>
+        <maml:title>--------- Example 1 - List all of the tasks in a task file ---------</maml:title>
         <maml:introduction>
           <maml:para>```powershell
 Get-Task .\todo.txt
 ```</maml:para>
           <maml:para>&#x80;</maml:para>
           <maml:para>```Output
-1 (A) Call Mom @Phone +Family
-2 (A) Schedule annual checkup +Health
-3 (B) Outline chapter 5 +Novel @Computer
-4 (C) Add cover sheets @Office +TPSReports
-5 Plan backyard herb garden @Home
-6 Pick up milk @GroceryStore
-7 Research self-publishing services +Novel @Computer
-8 x Download Todo.txt mobile app @Phone
+01 (A) Call Mom @Phone +Family
+02 (A) Schedule annual checkup +Health
+03 (B) Outline chapter 5 +Novel @Computer
+04 (C) Add cover sheets @Office +TPSReports
+05 Plan backyard herb garden @Home
+06 Pick up milk @GroceryStore
+07 Research self-publishing services +Novel @Computer
+08 x Download Todo.txt mobile app @Phone
+09 Bring in the garbage cans
+10 Bring in the garbage cans
 ```</maml:para>
         </maml:introduction>
         <dev:code />
         <dev:remarks />
       </command:example>
       <command:example>
-        <maml:title>--------- Example 2 ---------</maml:title>
+        <maml:title>--------- Example 2 - List tasks matching a string ---------</maml:title>
         <maml:introduction>
           <maml:para>```powershell
 Get-Task .\todo.txt "computer"
@@ -581,6 +608,8 @@ Get-Task .\todo.txt "computer"
 3 (B) Outline chapter 5 +Novel @Computer
 7 Research self-publishing services +Novel @Computer
 ```</maml:para>
+          <maml:para>&#x80;</maml:para>
+          <maml:para>String matching is case-insensitive.</maml:para>
         </maml:introduction>
         <dev:code />
         <dev:remarks />
@@ -597,13 +626,13 @@ Get-Task .\todo.txt "computer"
     <command:details>
       <command:name>Move-CompletedTask</command:name>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Move all completed tasks to another task file.</maml:para>
       </maml:description>
       <command:verb>Move</command:verb>
       <command:noun>CompletedTask</command:noun>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>This cmdlet will find all completed tasks in the source file and move them to the destination file. This is typically used for archiving completed tasks to keep an active task list from becoming too large.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -611,21 +640,21 @@ Get-Task .\todo.txt "computer"
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
           <maml:name>ArchivePath</maml:name>
           <maml:description>
-            <maml:para>{{ Fill ArchivePath Description }}</maml:para>
+            <maml:para>The destination task file to which completed tasks will be moved.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
         <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>PreserveLineNumbers</maml:name>
           <maml:description>
-            <maml:para>{{ Fill PreserveLineNumbers Description }}</maml:para>
+            <maml:para>If set, the lines of the moved tasks will be left blank (rather than deleted) in the source file. This preserves the numbering of the tasks in the file before and after this operation.</maml:para>
           </maml:description>
           <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
           <maml:name>SourcePath</maml:name>
           <maml:description>
-            <maml:para>{{ Fill SourcePath Description }}</maml:para>
+            <maml:para>The source task file.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -635,46 +664,39 @@ Get-Task .\todo.txt "computer"
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
         <maml:name>ArchivePath</maml:name>
         <maml:description>
-          <maml:para>{{ Fill ArchivePath Description }}</maml:para>
+          <maml:para>The destination task file to which completed tasks will be moved.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>PreserveLineNumbers</maml:name>
         <maml:description>
-          <maml:para>{{ Fill PreserveLineNumbers Description }}</maml:para>
+          <maml:para>If set, the lines of the moved tasks will be left blank (rather than deleted) in the source file. This preserves the numbering of the tasks in the file before and after this operation.</maml:para>
         </maml:description>
         <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
         <maml:name>SourcePath</maml:name>
         <maml:description>
-          <maml:para>{{ Fill SourcePath Description }}</maml:para>
+          <maml:para>The source task file.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
     </command:parameters>
     <command:inputTypes />
-    <command:returnValues>
-      <command:returnValue>
-        <dev:type>
-          <dev:name>System.Object</dev:name>
-        </dev:type>
-        <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
-        </maml:description>
-      </command:returnValue>
-    </command:returnValues>
+    <command:returnValues />
     <maml:alertSet>
       <maml:alert>
-        <maml:para>{{ Fill in the Notes }}</maml:para>
+        <maml:para />
       </maml:alert>
     </maml:alertSet>
     <command:examples>
       <command:example>
         <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para>```powershell
+Move-CompletedTask ./todo.txt ./done.txt
+```</maml:para>
         </maml:introduction>
         <dev:code />
         <dev:remarks />
@@ -691,13 +713,14 @@ Get-Task .\todo.txt "computer"
     <command:details>
       <command:name>Move-Task</command:name>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Moves a task from one task file to another.</maml:para>
       </maml:description>
       <command:verb>Move</command:verb>
       <command:noun>Task</command:noun>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Removes a task from the current task file and appends it to another task file. Tasks are specified by line number in the source file.</maml:para>
+      <maml:para>If the destination file does not already exist, it will be created.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -712,28 +735,28 @@ Get-Task .\todo.txt "computer"
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
           <maml:name>DestinationPath</maml:name>
           <maml:description>
-            <maml:para>{{ Fill DestinationPath Description }}</maml:para>
+            <maml:para>The file to which the task will be moved.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
           <maml:name>Number</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Number Description }}</maml:para>
+            <maml:para>The line number of the task to be moved.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
         </command:parameter>
         <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>PreserveLineNumbers</maml:name>
           <maml:description>
-            <maml:para>{{ Fill PreserveLineNumbers Description }}</maml:para>
+            <maml:para>If set, the line of the moved task will be left blank (rather than deleted) in the source file. This preserves the numbering of the tasks in the file before and after this operation.</maml:para>
           </maml:description>
           <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
           <maml:name>SourcePath</maml:name>
           <maml:description>
-            <maml:para>{{ Fill SourcePath Description }}</maml:para>
+            <maml:para>The file from which the task will be moved.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -757,28 +780,28 @@ Get-Task .\todo.txt "computer"
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
         <maml:name>DestinationPath</maml:name>
         <maml:description>
-          <maml:para>{{ Fill DestinationPath Description }}</maml:para>
+          <maml:para>The file to which the task will be moved.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
         <maml:name>Number</maml:name>
         <maml:description>
-          <maml:para>{{ Fill Number Description }}</maml:para>
+          <maml:para>The line number of the task to be moved.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
       </command:parameter>
       <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>PreserveLineNumbers</maml:name>
         <maml:description>
-          <maml:para>{{ Fill PreserveLineNumbers Description }}</maml:para>
+          <maml:para>If set, the line of the moved task will be left blank (rather than deleted) in the source file. This preserves the numbering of the tasks in the file before and after this operation.</maml:para>
         </maml:description>
         <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
         <maml:name>SourcePath</maml:name>
         <maml:description>
-          <maml:para>{{ Fill SourcePath Description }}</maml:para>
+          <maml:para>The file from which the task will be moved.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
@@ -791,26 +814,17 @@ Get-Task .\todo.txt "computer"
       </command:parameter>
     </command:parameters>
     <command:inputTypes />
-    <command:returnValues>
-      <command:returnValue>
-        <dev:type>
-          <dev:name>System.Object</dev:name>
-        </dev:type>
-        <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
-        </maml:description>
-      </command:returnValue>
-    </command:returnValues>
+    <command:returnValues />
     <maml:alertSet>
       <maml:alert>
-        <maml:para>{{ Fill in the Notes }}</maml:para>
+        <maml:para />
       </maml:alert>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- Example 1 ---------</maml:title>
+        <maml:title>--------- Example 1 - Move a task from one file to another ---------</maml:title>
         <maml:introduction>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para>Move-Task ./oldtaskfile.txt 2 ./newtaskfile.txt</maml:para>
         </maml:introduction>
         <dev:code />
         <dev:remarks />
@@ -827,13 +841,13 @@ Get-Task .\todo.txt "computer"
     <command:details>
       <command:name>Remove-Task</command:name>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Removes the specified task from the task file.</maml:para>
       </maml:description>
       <command:verb>Remove</command:verb>
       <command:noun>Task</command:noun>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Removes the specified task from the task file.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -848,21 +862,21 @@ Get-Task .\todo.txt "computer"
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
           <maml:name>Number</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Number Description }}</maml:para>
+            <maml:para>The line number of the task to be removed.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
         </command:parameter>
         <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>PreserveLineNumbers</maml:name>
           <maml:description>
-            <maml:para>{{ Fill PreserveLineNumbers Description }}</maml:para>
+            <maml:para>If set, the line of the removed task will be left blank (rather than deleted) in the source file. This preserves the numbering of the tasks in the file before and after this operation.</maml:para>
           </maml:description>
           <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
           <maml:name>SourcePath</maml:name>
           <maml:description>
-            <maml:para>{{ Fill SourcePath Description }}</maml:para>
+            <maml:para>The file from which the task will be removed.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -886,21 +900,21 @@ Get-Task .\todo.txt "computer"
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
         <maml:name>Number</maml:name>
         <maml:description>
-          <maml:para>{{ Fill Number Description }}</maml:para>
+          <maml:para>The line number of the task to be removed.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
       </command:parameter>
       <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>PreserveLineNumbers</maml:name>
         <maml:description>
-          <maml:para>{{ Fill PreserveLineNumbers Description }}</maml:para>
+          <maml:para>If set, the line of the removed task will be left blank (rather than deleted) in the source file. This preserves the numbering of the tasks in the file before and after this operation.</maml:para>
         </maml:description>
         <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
         <maml:name>SourcePath</maml:name>
         <maml:description>
-          <maml:para>{{ Fill SourcePath Description }}</maml:para>
+          <maml:para>The file from which the task will be removed.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
@@ -913,26 +927,19 @@ Get-Task .\todo.txt "computer"
       </command:parameter>
     </command:parameters>
     <command:inputTypes />
-    <command:returnValues>
-      <command:returnValue>
-        <dev:type>
-          <dev:name>System.Object</dev:name>
-        </dev:type>
-        <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
-        </maml:description>
-      </command:returnValue>
-    </command:returnValues>
+    <command:returnValues />
     <maml:alertSet>
       <maml:alert>
-        <maml:para>{{ Fill in the Notes }}</maml:para>
+        <maml:para />
       </maml:alert>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- Example 1 ---------</maml:title>
+        <maml:title>--------- Example 1 - Remove a task ---------</maml:title>
         <maml:introduction>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para>```powershell
+Remove-Task ./todo.txt 3
+```</maml:para>
         </maml:introduction>
         <dev:code />
         <dev:remarks />
@@ -949,13 +956,13 @@ Get-Task .\todo.txt "computer"
     <command:details>
       <command:name>Remove-TaskPriority</command:name>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Clears the priority setting from a task.</maml:para>
       </maml:description>
       <command:verb>Remove</command:verb>
       <command:noun>TaskPriority</command:noun>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Clears the priority setting from the specified task. Has no effect if the task has no priority set.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -963,14 +970,14 @@ Get-Task .\todo.txt "computer"
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
           <maml:name>Number</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Number Description }}</maml:para>
+            <maml:para>The line number of the target task.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
           <maml:name>SourcePath</maml:name>
           <maml:description>
-            <maml:para>{{ Fill SourcePath Description }}</maml:para>
+            <maml:para>The task list file.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -980,14 +987,14 @@ Get-Task .\todo.txt "computer"
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
         <maml:name>Number</maml:name>
         <maml:description>
-          <maml:para>{{ Fill Number Description }}</maml:para>
+          <maml:para>The line number of the target task.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
         <maml:name>SourcePath</maml:name>
         <maml:description>
-          <maml:para>{{ Fill SourcePath Description }}</maml:para>
+          <maml:para>The task list file.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
@@ -998,30 +1005,23 @@ Get-Task .\todo.txt "computer"
           <dev:name>System.Int32</dev:name>
         </dev:type>
         <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
+          <maml:para>The line number of a task to clear the priority from.</maml:para>
         </maml:description>
       </command:inputType>
     </command:inputTypes>
-    <command:returnValues>
-      <command:returnValue>
-        <dev:type>
-          <dev:name>System.Object</dev:name>
-        </dev:type>
-        <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
-        </maml:description>
-      </command:returnValue>
-    </command:returnValues>
+    <command:returnValues />
     <maml:alertSet>
       <maml:alert>
-        <maml:para>{{ Fill in the Notes }}</maml:para>
+        <maml:para />
       </maml:alert>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- Example 1 ---------</maml:title>
+        <maml:title>--------- Example 1 - Clear the priority value from a task ---------</maml:title>
         <maml:introduction>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para>```powershell
+Remove-TaskPriority ./todo.txt 2
+```</maml:para>
         </maml:introduction>
         <dev:code />
         <dev:remarks />
@@ -1038,13 +1038,13 @@ Get-Task .\todo.txt "computer"
     <command:details>
       <command:name>Set-Task</command:name>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Replace an existing task in a task file with a new one.</maml:para>
       </maml:description>
       <command:verb>Set</command:verb>
       <command:noun>Task</command:noun>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Replace an existing task in a task file with a new one. The line number specified must exist; if it does not, an exception will be thrown.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -1052,28 +1052,28 @@ Get-Task .\todo.txt "computer"
         <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
           <maml:name>EnsureCreatedDate</maml:name>
           <maml:description>
-            <maml:para>{{ Fill EnsureCreatedDate Description }}</maml:para>
+            <maml:para>If set, today's date will be inserted as the created date of the updated task if it is not specified in the task text.</maml:para>
           </maml:description>
           <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
           <maml:name>Number</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Number Description }}</maml:para>
+            <maml:para>The line number of the task to update.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
           <maml:name>SourcePath</maml:name>
           <maml:description>
-            <maml:para>{{ Fill SourcePath Description }}</maml:para>
+            <maml:para>The task list file.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
           <maml:name>Task</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Task Description }}</maml:para>
+            <maml:para>The updated task.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -1083,53 +1083,46 @@ Get-Task .\todo.txt "computer"
       <command:parameter required="false" variableLength="false" globbing="false" pipelineInput="false" position="Named" aliases="none">
         <maml:name>EnsureCreatedDate</maml:name>
         <maml:description>
-          <maml:para>{{ Fill EnsureCreatedDate Description }}</maml:para>
+          <maml:para>If set, today's date will be inserted as the created date of the updated task if it is not specified in the task text.</maml:para>
         </maml:description>
         <command:parameterValue required="false" variableLength="true">System.Management.Automation.SwitchParameter</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
         <maml:name>Number</maml:name>
         <maml:description>
-          <maml:para>{{ Fill Number Description }}</maml:para>
+          <maml:para>The line number of the task to update.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
         <maml:name>SourcePath</maml:name>
         <maml:description>
-          <maml:para>{{ Fill SourcePath Description }}</maml:para>
+          <maml:para>The task list file.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
         <maml:name>Task</maml:name>
         <maml:description>
-          <maml:para>{{ Fill Task Description }}</maml:para>
+          <maml:para>The updated task.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
     </command:parameters>
     <command:inputTypes />
-    <command:returnValues>
-      <command:returnValue>
-        <dev:type>
-          <dev:name>System.Object</dev:name>
-        </dev:type>
-        <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
-        </maml:description>
-      </command:returnValue>
-    </command:returnValues>
+    <command:returnValues />
     <maml:alertSet>
       <maml:alert>
-        <maml:para>{{ Fill in the Notes }}</maml:para>
+        <maml:para>Set-Task will replace the entire task at the specified line. To modify part of a task in place, consider Edit-Task.</maml:para>
       </maml:alert>
     </maml:alertSet>
     <command:examples>
       <command:example>
-        <maml:title>--------- Example 1 ---------</maml:title>
+        <maml:title>--------- Example 1 - Replace a task ---------</maml:title>
         <maml:introduction>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para>```powershell
+Set-Task ./todo.txt 2 "This is the new task 2"
+```</maml:para>
         </maml:introduction>
         <dev:code />
         <dev:remarks />
@@ -1140,19 +1133,23 @@ Get-Task .\todo.txt "computer"
         <maml:linkText>Online Version</maml:linkText>
         <command:uri />
       </maml:navigationLink>
+      <maml:navigationLink>
+        <maml:linkText>Task format rules</maml:linkText>
+        <command:uri>https://github.com/todotxt/todo.txt#todotxt-format-rules</command:uri>
+      </maml:navigationLink>
     </command:relatedLinks>
   </command:command>
   <command:command>
     <command:details>
       <command:name>Set-TaskComplete</command:name>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Marks a task as complete.</maml:para>
       </maml:description>
       <command:verb>Set</command:verb>
       <command:noun>TaskComplete</command:noun>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Marks a task as complete and adds the current date as the completed date of the task. If the task has a priority, the priority will be cleared.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -1160,14 +1157,14 @@ Get-Task .\todo.txt "computer"
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
           <maml:name>Number</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Number Description }}</maml:para>
+            <maml:para>The line number of the task to mark as complete.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
           <maml:name>SourcePath</maml:name>
           <maml:description>
-            <maml:para>{{ Fill SourcePath Description }}</maml:para>
+            <maml:para>The source task list.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -1177,14 +1174,14 @@ Get-Task .\todo.txt "computer"
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
         <maml:name>Number</maml:name>
         <maml:description>
-          <maml:para>{{ Fill Number Description }}</maml:para>
+          <maml:para>The line number of the task to mark as complete.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
         <maml:name>SourcePath</maml:name>
         <maml:description>
-          <maml:para>{{ Fill SourcePath Description }}</maml:para>
+          <maml:para>The source task list.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
@@ -1195,30 +1192,23 @@ Get-Task .\todo.txt "computer"
           <dev:name>System.Int32</dev:name>
         </dev:type>
         <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
+          <maml:para>The line number of a task to mark complete.</maml:para>
         </maml:description>
       </command:inputType>
     </command:inputTypes>
-    <command:returnValues>
-      <command:returnValue>
-        <dev:type>
-          <dev:name>System.Object</dev:name>
-        </dev:type>
-        <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
-        </maml:description>
-      </command:returnValue>
-    </command:returnValues>
+    <command:returnValues />
     <maml:alertSet>
       <maml:alert>
-        <maml:para>{{ Fill in the Notes }}</maml:para>
+        <maml:para />
       </maml:alert>
     </maml:alertSet>
     <command:examples>
       <command:example>
         <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para>```powershell
+Set-TaskComplete ./todo.txt 13
+```</maml:para>
         </maml:introduction>
         <dev:code />
         <dev:remarks />
@@ -1235,13 +1225,14 @@ Get-Task .\todo.txt "computer"
     <command:details>
       <command:name>Set-TaskPending</command:name>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Marks a completed task as pending.</maml:para>
       </maml:description>
       <command:verb>Set</command:verb>
       <command:noun>TaskPending</command:noun>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Marks a completed task as pending. Has no effect if the target task is not marked as complete. Any previous completed date for the task will be cleared.</maml:para>
+      <maml:para>This is the inverse of Set-TaskComplete, and is mostly useful when you accidentally mark a task complete before you intend to.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -1249,14 +1240,14 @@ Get-Task .\todo.txt "computer"
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
           <maml:name>Number</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Number Description }}</maml:para>
+            <maml:para>The line number of the completed task to mark as 'pending'.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
           <maml:name>SourcePath</maml:name>
           <maml:description>
-            <maml:para>{{ Fill SourcePath Description }}</maml:para>
+            <maml:para>The source task list file.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -1266,14 +1257,14 @@ Get-Task .\todo.txt "computer"
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
         <maml:name>Number</maml:name>
         <maml:description>
-          <maml:para>{{ Fill Number Description }}</maml:para>
+          <maml:para>The line number of the completed task to mark as 'pending'.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
         <maml:name>SourcePath</maml:name>
         <maml:description>
-          <maml:para>{{ Fill SourcePath Description }}</maml:para>
+          <maml:para>The source task list file.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
@@ -1284,30 +1275,23 @@ Get-Task .\todo.txt "computer"
           <dev:name>System.Int32</dev:name>
         </dev:type>
         <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
+          <maml:para>The line number of a completed task to mark as pending.</maml:para>
         </maml:description>
       </command:inputType>
     </command:inputTypes>
-    <command:returnValues>
-      <command:returnValue>
-        <dev:type>
-          <dev:name>System.Object</dev:name>
-        </dev:type>
-        <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
-        </maml:description>
-      </command:returnValue>
-    </command:returnValues>
+    <command:returnValues />
     <maml:alertSet>
       <maml:alert>
-        <maml:para>{{ Fill in the Notes }}</maml:para>
+        <maml:para />
       </maml:alert>
     </maml:alertSet>
     <command:examples>
       <command:example>
         <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para>```powershell
+ Set-TaskPending ./todo.txt 8
+```</maml:para>
         </maml:introduction>
         <dev:code />
         <dev:remarks />
@@ -1324,13 +1308,14 @@ Get-Task .\todo.txt "computer"
     <command:details>
       <command:name>Set-TaskPriority</command:name>
       <maml:description>
-        <maml:para>{{ Fill in the Synopsis }}</maml:para>
+        <maml:para>Sets a priority on a task.</maml:para>
       </maml:description>
       <command:verb>Set</command:verb>
       <command:noun>TaskPriority</command:noun>
     </command:details>
     <maml:description>
-      <maml:para>{{ Fill in the Description }}</maml:para>
+      <maml:para>Sets a priority from A-Z on a task. Duplicate priority values are allowed within a task file. Only the values A-Z are allowed.</maml:para>
+      <maml:para>Tasks marked with a priority will be listed by the Get-PriorityTask cmdlet and will be highlighted in the console.</maml:para>
     </maml:description>
     <command:syntax>
       <command:syntaxItem>
@@ -1338,21 +1323,21 @@ Get-Task .\todo.txt "computer"
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
           <maml:name>Number</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Number Description }}</maml:para>
+            <maml:para>The line number of the task to prioritize.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
           <maml:name>Priority</maml:name>
           <maml:description>
-            <maml:para>{{ Fill Priority Description }}</maml:para>
+            <maml:para>The priority to set on the task. Acceptable values are `A-Z`.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.Char</command:parameterValue>
         </command:parameter>
         <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
           <maml:name>SourcePath</maml:name>
           <maml:description>
-            <maml:para>{{ Fill SourcePath Description }}</maml:para>
+            <maml:para>The source task list file.</maml:para>
           </maml:description>
           <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
         </command:parameter>
@@ -1362,46 +1347,39 @@ Get-Task .\todo.txt "computer"
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="1" aliases="none">
         <maml:name>Number</maml:name>
         <maml:description>
-          <maml:para>{{ Fill Number Description }}</maml:para>
+          <maml:para>The line number of the task to prioritize.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.Int32</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="2" aliases="none">
         <maml:name>Priority</maml:name>
         <maml:description>
-          <maml:para>{{ Fill Priority Description }}</maml:para>
+          <maml:para>The priority to set on the task. Acceptable values are `A-Z`.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.Char</command:parameterValue>
       </command:parameter>
       <command:parameter required="true" variableLength="false" globbing="false" pipelineInput="false" position="0" aliases="none">
         <maml:name>SourcePath</maml:name>
         <maml:description>
-          <maml:para>{{ Fill SourcePath Description }}</maml:para>
+          <maml:para>The source task list file.</maml:para>
         </maml:description>
         <command:parameterValue required="true" variableLength="true">System.String</command:parameterValue>
       </command:parameter>
     </command:parameters>
     <command:inputTypes />
-    <command:returnValues>
-      <command:returnValue>
-        <dev:type>
-          <dev:name>System.Object</dev:name>
-        </dev:type>
-        <maml:description>
-          <maml:para>{{ Fill in the Description }}</maml:para>
-        </maml:description>
-      </command:returnValue>
-    </command:returnValues>
+    <command:returnValues />
     <maml:alertSet>
       <maml:alert>
-        <maml:para>{{ Fill in the Notes }}</maml:para>
+        <maml:para />
       </maml:alert>
     </maml:alertSet>
     <command:examples>
       <command:example>
         <maml:title>--------- Example 1 ---------</maml:title>
         <maml:introduction>
-          <maml:para>{{ Add example description here }}</maml:para>
+          <maml:para>```powershell
+Set-TaskPriority ./todo.txt 5 D
+```</maml:para>
         </maml:introduction>
         <dev:code />
         <dev:remarks />

@@ -13,7 +13,7 @@ title: Set-TaskPending
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+Marks a completed task as pending.
 
 ## SYNTAX
 
@@ -23,26 +23,25 @@ title: Set-TaskPending
 Set-TaskPending [-SourcePath] <string> [-Number] <int> [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
-
 ## DESCRIPTION
 
-{{ Fill in the Description }}
+Marks a completed task as pending. Has no effect if the target task is not marked as complete. Any previous completed date for the task will be cleared.
+
+This is the inverse of Set-TaskComplete, and is mostly useful when you accidentally mark a task complete before you intend to. 
 
 ## EXAMPLES
 
 ### Example 1
 
-{{ Add example description here }}
+```powershell
+ Set-TaskPending ./todo.txt 8
+```
 
 ## PARAMETERS
 
 ### -Number
 
-{{ Fill Number Description }}
+The line number of the completed task to mark as 'pending'.
 
 ```yaml
 Type: System.Int32
@@ -63,7 +62,7 @@ HelpMessage: ''
 
 ### -SourcePath
 
-{{ Fill SourcePath Description }}
+The source task list file.
 
 ```yaml
 Type: System.String
@@ -93,19 +92,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.Int32
 
-{{ Fill in the Description }}
+The line number of a completed task to mark as pending.
 
 ## OUTPUTS
 
-### System.Object
-
-{{ Fill in the Description }}
-
 ## NOTES
 
-{{ Fill in the Notes }}
-
 ## RELATED LINKS
-
-{{ Fill in the related links here }}
 

@@ -13,7 +13,7 @@ title: Set-TaskComplete
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+Marks a task as complete.
 
 ## SYNTAX
 
@@ -23,26 +23,23 @@ title: Set-TaskComplete
 Set-TaskComplete [-SourcePath] <string> [-Number] <int> [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
-
 ## DESCRIPTION
 
-{{ Fill in the Description }}
+Marks a task as complete and adds the current date as the completed date of the task. If the task has a priority, the priority will be cleared.
 
 ## EXAMPLES
 
 ### Example 1
 
-{{ Add example description here }}
+```powershell
+Set-TaskComplete ./todo.txt 13
+```
 
 ## PARAMETERS
 
 ### -Number
 
-{{ Fill Number Description }}
+The line number of the task to mark as complete.
 
 ```yaml
 Type: System.Int32
@@ -63,7 +60,7 @@ HelpMessage: ''
 
 ### -SourcePath
 
-{{ Fill SourcePath Description }}
+The source task list.
 
 ```yaml
 Type: System.String
@@ -93,19 +90,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.Int32
 
-{{ Fill in the Description }}
+The line number of a task to mark complete.
 
 ## OUTPUTS
 
-### System.Object
-
-{{ Fill in the Description }}
-
 ## NOTES
 
-{{ Fill in the Notes }}
-
 ## RELATED LINKS
-
-{{ Fill in the related links here }}
 

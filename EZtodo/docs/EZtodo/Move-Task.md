@@ -13,7 +13,7 @@ title: Move-Task
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+Moves a task from one task file to another.
 
 ## SYNTAX
 
@@ -24,20 +24,17 @@ Move-Task [-SourcePath] <string> [-Number] <int> [-DestinationPath] <string> [-P
  [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
-
 ## DESCRIPTION
 
-{{ Fill in the Description }}
+Removes a task from the current task file and appends it to another task file. Tasks are specified by line number in the source file.
+
+If the destination file does not already exist, it will be created.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1 - Move a task from one file to another
 
-{{ Add example description here }}
+Move-Task ./oldtaskfile.txt 2 ./newtaskfile.txt 
 
 ## PARAMETERS
 
@@ -65,7 +62,7 @@ HelpMessage: ''
 
 ### -DestinationPath
 
-{{ Fill DestinationPath Description }}
+The file to which the task will be moved.
 
 ```yaml
 Type: System.String
@@ -86,7 +83,7 @@ HelpMessage: ''
 
 ### -Number
 
-{{ Fill Number Description }}
+The line number of the task to be moved. 
 
 ```yaml
 Type: System.Int32
@@ -107,7 +104,7 @@ HelpMessage: ''
 
 ### -PreserveLineNumbers
 
-{{ Fill PreserveLineNumbers Description }}
+If set, the line of the moved task will be left blank (rather than deleted) in the source file. This preserves the numbering of the tasks in the file before and after this operation.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -128,7 +125,7 @@ HelpMessage: ''
 
 ### -SourcePath
 
-{{ Fill SourcePath Description }}
+The file from which the task will be moved.
 
 ```yaml
 Type: System.String
@@ -180,15 +177,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### System.Object
-
-{{ Fill in the Description }}
-
 ## NOTES
-
-{{ Fill in the Notes }}
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+
 

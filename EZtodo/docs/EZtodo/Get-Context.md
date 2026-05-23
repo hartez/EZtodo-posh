@@ -13,7 +13,7 @@ title: Get-Context
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+List all of the contexts in the task file.
 
 ## SYNTAX
 
@@ -23,26 +23,23 @@ title: Get-Context
 Get-Context [-SourcePath] <string> [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
-
 ## DESCRIPTION
 
-{{ Fill in the Description }}
+Lists all the contexts in all of the tasks in the task file. The list is ordered alphabetically, and all contexts are prefixed with "@".
 
 ## EXAMPLES
 
 ### Example 1
 
-{{ Add example description here }}
+```powershell
+Get-Context ./todo.txt
+```
 
 ## PARAMETERS
 
 ### -SourcePath
 
-{{ Fill SourcePath Description }}
+The source task list.
 
 ```yaml
 Type: System.String
@@ -74,13 +71,10 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.String
 
-{{ Fill in the Description }}
+A string representing a context.
 
 ## NOTES
 
-{{ Fill in the Notes }}
-
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
 

@@ -13,7 +13,7 @@ title: Move-CompletedTask
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+Move all completed tasks to another task file.
 
 ## SYNTAX
 
@@ -24,26 +24,23 @@ Move-CompletedTask [-SourcePath] <string> [-ArchivePath] <string> [-PreserveLine
  [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
-
 ## DESCRIPTION
 
-{{ Fill in the Description }}
+This cmdlet will find all completed tasks in the source file and move them to the destination file. This is typically used for archiving completed tasks to keep an active task list from becoming too large.
 
 ## EXAMPLES
 
 ### Example 1
 
-{{ Add example description here }}
+```powershell
+Move-CompletedTask ./todo.txt ./done.txt 
+```
 
 ## PARAMETERS
 
 ### -ArchivePath
 
-{{ Fill ArchivePath Description }}
+The destination task file to which completed tasks will be moved.
 
 ```yaml
 Type: System.String
@@ -64,7 +61,7 @@ HelpMessage: ''
 
 ### -PreserveLineNumbers
 
-{{ Fill PreserveLineNumbers Description }}
+If set, the lines of the moved tasks will be left blank (rather than deleted) in the source file. This preserves the numbering of the tasks in the file before and after this operation.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -85,7 +82,7 @@ HelpMessage: ''
 
 ### -SourcePath
 
-{{ Fill SourcePath Description }}
+The source task file.
 
 ```yaml
 Type: System.String
@@ -115,15 +112,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### System.Object
-
-{{ Fill in the Description }}
-
 ## NOTES
 
-{{ Fill in the Notes }}
-
 ## RELATED LINKS
-
-{{ Fill in the related links here }}
 

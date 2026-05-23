@@ -13,7 +13,7 @@ title: Set-Task
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+Replace an existing task in a task file with a new one.
 
 ## SYNTAX
 
@@ -24,26 +24,23 @@ Set-Task [-SourcePath] <string> [-Number] <int> [-Task] <string> [-EnsureCreated
  [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
-
 ## DESCRIPTION
 
-{{ Fill in the Description }}
+Replace an existing task in a task file with a new one. The line number specified must exist; if it does not, an exception will be thrown.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1 - Replace a task
 
-{{ Add example description here }}
+```powershell
+Set-Task ./todo.txt 2 "This is the new task 2"
+```
 
 ## PARAMETERS
 
 ### -EnsureCreatedDate
 
-{{ Fill EnsureCreatedDate Description }}
+If set, today's date will be inserted as the created date of the updated task if it is not specified in the task text.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -64,7 +61,7 @@ HelpMessage: ''
 
 ### -Number
 
-{{ Fill Number Description }}
+The line number of the task to update.
 
 ```yaml
 Type: System.Int32
@@ -85,7 +82,7 @@ HelpMessage: ''
 
 ### -SourcePath
 
-{{ Fill SourcePath Description }}
+The task list file. 
 
 ```yaml
 Type: System.String
@@ -106,7 +103,7 @@ HelpMessage: ''
 
 ### -Task
 
-{{ Fill Task Description }}
+The updated task.
 
 ```yaml
 Type: System.String
@@ -136,15 +133,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### System.Object
-
-{{ Fill in the Description }}
-
 ## NOTES
 
-{{ Fill in the Notes }}
+Set-Task will replace the entire task at the specified line. To modify part of a task in place, consider Edit-Task.
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+- [Task format rules](https://github.com/todotxt/todo.txt#todotxt-format-rules)
 

@@ -23,9 +23,6 @@ Adds a new task to the task file.
 Add-Task [-SourcePath] <string> [-Task] <string> [-EnsureCreatedDate] [<CommonParameters>]
 ```
 
-## ALIASES
-
-
 ## DESCRIPTION
 
 Appends a new task to the end of the specified task file. The -EnsureCreatedDate flag will insert today's date as the created date of the task if one is not specified in the task text.
@@ -34,7 +31,7 @@ Appends a new task to the end of the specified task file. The -EnsureCreatedDate
 
 ### Example 1
 
-{{ Add example description here }}
+Add-Task .\todo.txt "Bring in the garbage cans"
 
 ## PARAMETERS
 
@@ -82,7 +79,7 @@ HelpMessage: ''
 
 ### -Task
 
-{{ Fill Task Description }}
+The task string to add. 
 
 ```yaml
 Type: System.String
@@ -112,19 +109,13 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.String
 
-{{ Fill in the Description }}
+A string representing a todo.txt task.
 
 ## OUTPUTS
 
-### System.Object
-
-{{ Fill in the Description }}
-
 ## NOTES
-
-{{ Fill in the Notes }}
 
 ## RELATED LINKS
 
-{{ Fill in the related links here }}
+- [Task format rules](https://github.com/todotxt/todo.txt#todotxt-format-rules)
 

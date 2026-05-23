@@ -13,7 +13,7 @@ title: Get-Project
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+List all of the projects in the task file.
 
 ## SYNTAX
 
@@ -23,26 +23,23 @@ title: Get-Project
 Get-Project [-SourcePath] <string> [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
-
 ## DESCRIPTION
 
-{{ Fill in the Description }}
+Lists all the projects in all of the tasks in the task file. The list is ordered alphabetically, and all projects are prefixed with "+".
 
 ## EXAMPLES
 
 ### Example 1
 
-{{ Add example description here }}
+```powershell
+Get-Project ./todo.txt
+```
 
 ## PARAMETERS
 
 ### -SourcePath
 
-{{ Fill SourcePath Description }}
+The source task list.
 
 ```yaml
 Type: System.String
@@ -74,13 +71,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.String
 
-{{ Fill in the Description }}
+A string representing a project.
 
 ## NOTES
 
-{{ Fill in the Notes }}
-
 ## RELATED LINKS
-
-{{ Fill in the related links here }}
 

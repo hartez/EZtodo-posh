@@ -13,7 +13,7 @@ title: Remove-TaskPriority
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+Clears the priority setting from a task.
 
 ## SYNTAX
 
@@ -23,26 +23,23 @@ title: Remove-TaskPriority
 Remove-TaskPriority [-SourcePath] <string> [-Number] <int> [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
-
 ## DESCRIPTION
 
-{{ Fill in the Description }}
+Clears the priority setting from the specified task. Has no effect if the task has no priority set.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1 - Clear the priority value from a task
 
-{{ Add example description here }}
+```powershell
+Remove-TaskPriority ./todo.txt 2 
+```
 
 ## PARAMETERS
 
 ### -Number
 
-{{ Fill Number Description }}
+The line number of the target task.
 
 ```yaml
 Type: System.Int32
@@ -63,7 +60,7 @@ HelpMessage: ''
 
 ### -SourcePath
 
-{{ Fill SourcePath Description }}
+The task list file.
 
 ```yaml
 Type: System.String
@@ -93,19 +90,11 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### System.Int32
 
-{{ Fill in the Description }}
+The line number of a task to clear the priority from.
 
 ## OUTPUTS
 
-### System.Object
-
-{{ Fill in the Description }}
-
 ## NOTES
 
-{{ Fill in the Notes }}
-
 ## RELATED LINKS
-
-{{ Fill in the related links here }}
 

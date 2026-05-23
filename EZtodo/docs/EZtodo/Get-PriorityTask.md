@@ -13,7 +13,7 @@ title: Get-PriorityTask
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+Lists all priority tasks in a task file.
 
 ## SYNTAX
 
@@ -23,26 +23,29 @@ title: Get-PriorityTask
 Get-PriorityTask [-SourcePath] <string> [[-Priority] <char>] [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
-
 ## DESCRIPTION
 
-{{ Fill in the Description }}
+Lists all tasks in a task file which have a priority set. If a priority value is specified, lists only tasks which match that priority. If no value is specified, lists all prioritized tasks in order of priority.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1 - List all prioritized tasks
 
-{{ Add example description here }}
+```powershell
+Get-PriorityTask ./todo.txt
+```
+
+### Example 2 - List all tasks with priority 'B'
+
+```powershell
+Get-PriorityTask ./todo.txt B
+```
 
 ## PARAMETERS
 
 ### -Priority
 
-{{ Fill Priority Description }}
+If set, the resulting list will only contain tasks matching this priority. Acceptable values are `A-Z`.
 
 ```yaml
 Type: System.Nullable`1[System.Char]
@@ -63,7 +66,7 @@ HelpMessage: ''
 
 ### -SourcePath
 
-{{ Fill SourcePath Description }}
+The source task list.
 
 ```yaml
 Type: System.String
@@ -95,13 +98,9 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ### EZtodo.NumberedTask
 
-{{ Fill in the Description }}
+An object containing a task and its line number in the source task file.
 
 ## NOTES
 
-{{ Fill in the Notes }}
-
 ## RELATED LINKS
-
-{{ Fill in the related links here }}
 

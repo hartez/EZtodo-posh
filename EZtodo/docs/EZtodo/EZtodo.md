@@ -14,63 +14,63 @@ title: EZtodo Module
 
 ## Description
 
-todo.txt for PowerShell
+Task management in PowerShell using the todo.txt file format.
 
 ## EZtodo
 
 ### [Add-Task](Add-Task.md)
 
-{{ Fill in the Synopsis }}
+Adds a new task to the task file.
 
 ### [Edit-Task](Edit-Task.md)
 
-{{ Fill in the Synopsis }}
+Modifies the body text of a task.
 
 ### [Get-Context](Get-Context.md)
 
-{{ Fill in the Synopsis }}
+List all of the contexts in the task file.
 
 ### [Get-PriorityTask](Get-PriorityTask.md)
 
-{{ Fill in the Synopsis }}
+Lists all priority tasks in a task file.
 
 ### [Get-Project](Get-Project.md)
 
-{{ Fill in the Synopsis }}
+List all of the projects in the task file.
 
 ### [Get-Task](Get-Task.md)
 
-{{ Fill in the Synopsis }}
+Gets the tasks from the specified task file.
 
 ### [Move-CompletedTask](Move-CompletedTask.md)
 
-{{ Fill in the Synopsis }}
+Move all completed tasks to another task file.
 
 ### [Move-Task](Move-Task.md)
 
-{{ Fill in the Synopsis }}
+Moves a task from one task file to another.
 
 ### [Remove-Task](Remove-Task.md)
 
-{{ Fill in the Synopsis }}
+Removes the specified task from the task file.
 
 ### [Remove-TaskPriority](Remove-TaskPriority.md)
 
-{{ Fill in the Synopsis }}
+Clears the priority setting from a task.
 
 ### [Set-Task](Set-Task.md)
 
-{{ Fill in the Synopsis }}
+Replace an existing task in a task file with a new one.
 
 ### [Set-TaskComplete](Set-TaskComplete.md)
 
-{{ Fill in the Synopsis }}
+Marks a task as complete.
 
 ### [Set-TaskPending](Set-TaskPending.md)
 
-{{ Fill in the Synopsis }}
+Marks a completed task as pending.
 
 ### [Set-TaskPriority](Set-TaskPriority.md)
 
-{{ Fill in the Synopsis }}
+Sets a priority on a task.
 

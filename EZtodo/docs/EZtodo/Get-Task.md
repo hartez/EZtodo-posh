@@ -13,7 +13,7 @@ title: Get-Task
 
 ## SYNOPSIS
 
-Gets the tasks from the specified task list file, filtered by the specified search term.
+Gets the tasks from the specified task file.
 
 ## SYNTAX
 
@@ -25,33 +25,32 @@ Get-Task [-SourcePath] <string> [[-SearchTerm] <string>] [<CommonParameters>]
 
 ## ALIASES
 
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
-
 ## DESCRIPTION
 
-{{ Fill in the Description }}
+Gets the tasks from the specified task file. Tasks can be filtered by a search term.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1 - List all of the tasks in a task file
 
 ```powershell
 Get-Task .\todo.txt
 ```
 
 ```Output
-1 (A) Call Mom @Phone +Family
-2 (A) Schedule annual checkup +Health
-3 (B) Outline chapter 5 +Novel @Computer
-4 (C) Add cover sheets @Office +TPSReports
-5 Plan backyard herb garden @Home
-6 Pick up milk @GroceryStore
-7 Research self-publishing services +Novel @Computer
-8 x Download Todo.txt mobile app @Phone
+01 (A) Call Mom @Phone +Family
+02 (A) Schedule annual checkup +Health
+03 (B) Outline chapter 5 +Novel @Computer
+04 (C) Add cover sheets @Office +TPSReports
+05 Plan backyard herb garden @Home
+06 Pick up milk @GroceryStore
+07 Research self-publishing services +Novel @Computer
+08 x Download Todo.txt mobile app @Phone
+09 Bring in the garbage cans
+10 Bring in the garbage cans
 ```
 
-### Example 2
+### Example 2 - List tasks matching a string 
 
 ```powershell
 Get-Task .\todo.txt "computer"
@@ -61,6 +60,8 @@ Get-Task .\todo.txt "computer"
 3 (B) Outline chapter 5 +Novel @Computer
 7 Research self-publishing services +Novel @Computer
 ```
+
+String matching is case-insensitive.
 
 ## PARAMETERS
 
@@ -123,11 +124,6 @@ Object including the Task and the file line number of the Task.
 
 ## NOTES
 
-{{ Fill in the Notes }}
-
 ## RELATED LINKS
-
-{{ Fill in the related links here }}
-
 
 

@@ -12,7 +12,7 @@ Describe 'Move-Task' {
         Remove-Item ./newtaskfile.txt -Force
     }
 
-    It 'Replaces a task in the list' {
+    It 'Moves a task to a new file' {
         Move-Task ./local.txt 2 ./newtaskfile.txt 
         $tasks = Get-Task ./local.txt
         $tasks.Count | Should -Be 7

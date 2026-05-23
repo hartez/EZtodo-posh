@@ -13,7 +13,7 @@ title: Set-TaskPriority
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+Sets a priority on a task.
 
 ## SYNTAX
 
@@ -23,26 +23,25 @@ title: Set-TaskPriority
 Set-TaskPriority [-SourcePath] <string> [-Number] <int> [-Priority] <char> [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
-
 ## DESCRIPTION
 
-{{ Fill in the Description }}
+Sets a priority from A-Z on a task. Duplicate priority values are allowed within a task file. Only the values A-Z are allowed. 
+
+Tasks marked with a priority will be listed by the Get-PriorityTask cmdlet and will be highlighted in the console. 
 
 ## EXAMPLES
 
 ### Example 1
 
-{{ Add example description here }}
+```powershell
+Set-TaskPriority ./todo.txt 5 D
+```
 
 ## PARAMETERS
 
 ### -Number
 
-{{ Fill Number Description }}
+The line number of the task to prioritize.
 
 ```yaml
 Type: System.Int32
@@ -63,7 +62,7 @@ HelpMessage: ''
 
 ### -Priority
 
-{{ Fill Priority Description }}
+The priority to set on the task. Acceptable values are `A-Z`.
 
 ```yaml
 Type: System.Char
@@ -84,7 +83,7 @@ HelpMessage: ''
 
 ### -SourcePath
 
-{{ Fill SourcePath Description }}
+The source task list file.
 
 ```yaml
 Type: System.String
@@ -114,15 +113,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### System.Object
-
-{{ Fill in the Description }}
-
 ## NOTES
 
-{{ Fill in the Notes }}
-
 ## RELATED LINKS
-
-{{ Fill in the related links here }}
 

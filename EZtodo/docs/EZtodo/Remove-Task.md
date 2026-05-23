@@ -13,7 +13,7 @@ title: Remove-Task
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+Removes the specified task from the task file.
 
 ## SYNTAX
 
@@ -24,20 +24,17 @@ Remove-Task [-SourcePath] <string> [-Number] <int> [-PreserveLineNumbers] [-What
  [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
-
 ## DESCRIPTION
 
-{{ Fill in the Description }}
+Removes the specified task from the task file. 
 
 ## EXAMPLES
 
-### Example 1
+### Example 1 - Remove a task 
 
-{{ Add example description here }}
+```powershell
+Remove-Task ./todo.txt 3 
+```
 
 ## PARAMETERS
 
@@ -65,7 +62,7 @@ HelpMessage: ''
 
 ### -Number
 
-{{ Fill Number Description }}
+The line number of the task to be removed.
 
 ```yaml
 Type: System.Int32
@@ -86,7 +83,7 @@ HelpMessage: ''
 
 ### -PreserveLineNumbers
 
-{{ Fill PreserveLineNumbers Description }}
+If set, the line of the removed task will be left blank (rather than deleted) in the source file. This preserves the numbering of the tasks in the file before and after this operation.
 
 ```yaml
 Type: System.Management.Automation.SwitchParameter
@@ -107,7 +104,7 @@ HelpMessage: ''
 
 ### -SourcePath
 
-{{ Fill SourcePath Description }}
+The file from which the task will be removed.
 
 ```yaml
 Type: System.String
@@ -159,15 +156,7 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### System.Object
-
-{{ Fill in the Description }}
-
 ## NOTES
 
-{{ Fill in the Notes }}
-
 ## RELATED LINKS
-
-{{ Fill in the related links here }}
 

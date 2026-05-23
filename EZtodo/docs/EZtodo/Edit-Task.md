@@ -13,7 +13,7 @@ title: Edit-Task
 
 ## SYNOPSIS
 
-{{ Fill in the Synopsis }}
+Modifies the body text of a task.
 
 ## SYNTAX
 
@@ -36,26 +36,37 @@ Edit-Task [-SourcePath] <string> [-Number] <int> [-Replace] <string> [-ReplaceWi
  [<CommonParameters>]
 ```
 
-## ALIASES
-
-This cmdlet has the following aliases,
-  {{Insert list of aliases}}
-
 ## DESCRIPTION
 
-{{ Fill in the Description }}
+Modifies the body text of a task by appending, prepending, or replacing text. If replace is specified, all instances of the search text are replaced.
+
+Only the body text of the task is modified; this command does not affect priorties, created dates, or completed dates. This command does not affect task completion.
 
 ## EXAMPLES
 
-### Example 1
+### Example 1 - Append text to a task
 
-{{ Add example description here }}
+```powershell
+Edit-Task ./todo.txt 6 -Append " (two gallons)" 
+```
+
+### Example 2 - Add text to the beginning of a task
+
+```powershell
+Edit-Task ./todo.txt 2 -Prepend "Call to "
+```
+
+### Example 3 - Replace text in a task
+
+```powershell
+Edit-Task ./todo.txt 2 -Replace "annual" -ReplaceWith "biannual" 
+```
 
 ## PARAMETERS
 
 ### -Append
 
-{{ Fill Append Description }}
+Appends the specified text to the end of the task.
 
 ```yaml
 Type: System.String
@@ -76,7 +87,7 @@ HelpMessage: ''
 
 ### -Number
 
-{{ Fill Number Description }}
+The line number of the task to modify.
 
 ```yaml
 Type: System.Int32
@@ -109,7 +120,7 @@ HelpMessage: ''
 
 ### -Prepend
 
-{{ Fill Prepend Description }}
+Prepends the specified text to the beginning of the task.
 
 ```yaml
 Type: System.String
@@ -130,7 +141,7 @@ HelpMessage: ''
 
 ### -Replace
 
-{{ Fill Replace Description }}
+The text in the task to replace.
 
 ```yaml
 Type: System.String
@@ -151,7 +162,7 @@ HelpMessage: ''
 
 ### -ReplaceWith
 
-{{ Fill ReplaceWith Description }}
+The replacement text.
 
 ```yaml
 Type: System.String
@@ -214,15 +225,6 @@ This cmdlet supports the common parameters: -Debug, -ErrorAction, -ErrorVariable
 
 ## OUTPUTS
 
-### System.Object
-
-{{ Fill in the Description }}
-
 ## NOTES
 
-{{ Fill in the Notes }}
-
 ## RELATED LINKS
-
-{{ Fill in the related links here }}
-
