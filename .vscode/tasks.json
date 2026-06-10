@@ -31,6 +31,7 @@
 				{
 					// Unique id to help VS code clear warnings from the Problems window when you re-run the task
 					"owner": "updateHelp",
+					"fileLocation": "absolute",
 					"pattern": {
 						// This regex needs to be adjusted to how your custom tool outputs errors and warnings to the console output
 						"regexp": "(Warning|Error)\\s(.*)\\s(-?\\d+)\\s(.*)",

@@ -13,7 +13,7 @@ title: Edit-Task
 
 ## SYNOPSIS
 
-Modifies the body text of a task.
+Modifies the body text of a task. 
 
 ## SYNTAX
 
